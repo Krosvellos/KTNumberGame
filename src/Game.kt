@@ -12,7 +12,13 @@ class Game {
 
             do {
                 for (i in 0 until attempts) {
-                    guess = readLine()?.toIntOrNull() ?: continue
+
+                    try {
+                        guess = readLine()?.toInt() ?: continue
+                    }catch (e: NumberFormatException){
+                        println("Invalid input! Please enter a valid number.")
+                        continue
+                    }
 
                     when {
 
