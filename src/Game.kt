@@ -6,7 +6,7 @@ class Game {
             val randNum = Random.nextInt(1, 10)
             var guess = 0
             val attempts = 3
-
+            var remainingAttempts = attempts
 
             println("A number is chosen between 1 and 10! Guess the number:")
 
@@ -18,10 +18,14 @@ class Game {
 
                         guess < randNum -> println("The number is higher! Try again.")
                         guess > randNum -> println("The number is lower! Try again.")
-                        else -> println("That is correct!")
+                        else -> {println("That is correct!")
+                        return
+                        }
                     }
-                    if(i == attempts - 1) {
+                    remainingAttempts--
+                    if (remainingAttempts == 0) {
                         println("You are out of trials! Game over!")
+                        return
 
                     }
                 }
